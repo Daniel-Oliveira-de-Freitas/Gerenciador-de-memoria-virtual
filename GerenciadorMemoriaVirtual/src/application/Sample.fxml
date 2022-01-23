@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
-<?import javafx.scene.layout.BorderPane?>
-	
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
-	<!-- TODO Add Nodes -->
-</BorderPane>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #8854d0;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GerenciadorController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="305.0" layoutX="22.0" layoutY="66.0" stroke="BLACK" strokeType="INSIDE" width="269.0" />
+      <ListView fx:id="lista" layoutX="311.0" layoutY="67.0" prefHeight="305.0" prefWidth="269.0" />
+      <Label layoutX="67.0" layoutY="11.0" text="Gerenciador de Memória Virtual">
+         <font>
+            <Font name="Bodoni MT" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="486.0" layoutY="379.0" text="by Cassio &amp; Daniel" />
+      <Label layoutX="38.0" layoutY="81.0" text="Informe o número de Processos" />
+      <Label layoutX="38.0" layoutY="136.0" text="Informe o número de pág. de Processos" />
+      <Label layoutX="38.0" layoutY="195.0" text="Informe a capacidade da Memória Principal" />
+      <Label layoutX="38.0" layoutY="253.0" text="Informe o Working set Limit" />
+      <TextField fx:id="txfNumProc" layoutX="38.0" layoutY="98.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="txfNumPagProc" layoutX="38.0" layoutY="156.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="txfMemPric" layoutX="38.0" layoutY="213.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="txfWorking" layoutX="38.0" layoutY="273.0" prefHeight="25.0" prefWidth="230.0" />
+      <Button layoutX="38.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnSubmit" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #8854d0;" text="Submit">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="txaLista" layoutX="311.0" layoutY="67.0" prefHeight="305.0" prefWidth="269.0" />
+   </children>
+</AnchorPane>
