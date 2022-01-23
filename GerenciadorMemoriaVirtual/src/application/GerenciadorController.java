@@ -4,12 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class GerenciadorController {
     @FXML
-    public TextArea txaLista;
+    public ListView<String> lista;
 
     public static String recebeValor;
     
@@ -17,7 +16,8 @@ public class GerenciadorController {
     
     public static String recebeValo;
     
-
+    public static String recebeV;
+    
     @FXML
     private TextField txfMemPric;
 
@@ -40,9 +40,10 @@ public class GerenciadorController {
 		
 		Processo.terminarProcessos(processos);
     
-    txaLista.setText(recebeValor);
-    txaLista.setText(recebeVal);
-    txaLista.setText(recebeValo);
+    lista.getItems().addAll(recebeValor);
+    lista.getItems().add(recebeVal);
+    lista.getItems().add(recebeValo);
+    lista.getItems().add(recebeV);
     }	
 
 

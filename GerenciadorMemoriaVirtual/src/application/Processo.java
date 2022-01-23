@@ -28,7 +28,8 @@ public class Processo extends Thread {
 
 		}
 
-	GerenciadorController.recebeValor = String.format("Processo "+toString()+" terminou.");
+	GerenciadorController.recebeV = String.format("Processo "+toString()+" terminou.");
+	System.out.println(String.format("Processo "+toString()+" terminou."));
 	}
 
 		
@@ -43,7 +44,7 @@ public class Processo extends Thread {
 			processos[i] = processo;
 
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

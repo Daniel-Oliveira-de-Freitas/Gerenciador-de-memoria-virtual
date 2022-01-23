@@ -28,8 +28,8 @@ public class GerenciadorDeMemoria {
 	
 	public synchronized void alocaPagina(Pagina pagina) {
 		Processo processo = pagina.getProcesso();
-		GerenciadorController.recebeValor = String.format("Processo "+processo.toString()+" solicitou a página "+ pagina.getNumPagina() +".");
-		GerenciadorController.recebeVal = String.format("Lista LRU: "+listaLRU);
+		GerenciadorController.recebeValor = String.format("Processo "+processo.toString()+" solicitou a página "+ pagina.getNumPagina() +"."+'\n'+"Lista LRU: "+listaLRU);
+		System.out.println( String.format("Processo "+processo.toString()+" solicitou a página "+ pagina.getNumPagina() +"."+'\n'+"Lista LRU: "+listaLRU));
 		TabelaDeProcesso tabelaDoProcesso = tabelasDePaginas.get(processo);
 		
 		if (tabelaDoProcesso == null) {
@@ -40,6 +40,7 @@ public class GerenciadorDeMemoria {
 		Integer enderecoPagina = tabelaDoProcesso.acessaPagina(pagina);
 		if (enderecoPagina == null) { //pagina nao está na memoria virtual
 			GerenciadorController.recebeValo = String.format("------- Page fault! --------");
+			System.out.println(String.format("------- Page fault! --------"));
 			realizaAlocacao(pagina, processo, tabelaDoProcesso, proximoEnderecoAreaDeSwap--);
 		}
 		else if (enderecoPagina < 0) {
@@ -49,10 +50,8 @@ public class GerenciadorDeMemoria {
 		listaLRU.remove(pagina);
 		listaLRU.addLast(pagina);
 		
-		GerenciadorController.recebeValor = String.format("Lista LRU: "+String.valueOf(listaLRU));
-		GerenciadorController.recebeVal = String.format(String.valueOf(tabelasDePaginas));
-		GerenciadorController.recebeValo = String.format(String.valueOf(framesLivres));
-
+		GerenciadorController.recebeVal = String.format("Lista LRU: "+String.valueOf(listaLRU)+'\n'+tabelasDePaginas+'\n'+framesLivres);
+		System.out.println( String.format("Lista LRU: "+String.valueOf(listaLRU)+'\n'+tabelasDePaginas+'\n'+framesLivres));
 	}
 
 	private void realizaAlocacao(Pagina pagina, Processo processo,
@@ -64,7 +63,7 @@ public class GerenciadorDeMemoria {
 				proximoEnderecoAreaDeSwap++;
 			}
 			else {
-				GerenciadorController.recebeValor = String.format("Memória cheia");
+				GerenciadorController.recebeValo = String.format("Memória cheia");
 				
 				Pagina paginaLRU = getPaginaLRU();
 				
