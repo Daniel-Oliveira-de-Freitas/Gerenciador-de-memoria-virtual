@@ -1,12 +1,15 @@
 package application;
 
+import java.io.IOException;
 import java.util.Random;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 public class Processo extends Thread {
 	private final int pid;
 	private final int numPaginas;
 	private final GerenciadorDeMemoria gerenciadorDeMemoria;
-
 	private final Random random;
 
 	public Processo(int pid, int numPaginas, GerenciadorDeMemoria gerenciadorDeMemoria) {
@@ -15,6 +18,7 @@ public class Processo extends Thread {
 		this.gerenciadorDeMemoria = gerenciadorDeMemoria;
 		this.random = new Random();
 	}
+
 
 	@Override
 	public void run() {
@@ -27,7 +31,6 @@ public class Processo extends Thread {
 			}
 
 		}
-
 	GerenciadorController.recebeV = String.format("Processo "+toString()+" terminou.");
 	System.out.println(String.format("Processo "+toString()+" terminou."));
 	}

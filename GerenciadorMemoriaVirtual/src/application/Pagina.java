@@ -11,11 +11,6 @@ public class Pagina {
 		this.numPagina = numPagina;
 	}
 
-	@Override
-	public String toString() {
-		return processo + "-Pg" + numPagina;
-	}
-
 	public Processo getProcesso() {
 		return processo;
 	}
@@ -27,6 +22,11 @@ public class Pagina {
 	@Override
 	public int hashCode() {
 		return numPagina;
+	}
+
+	@Override
+	public String toString() {
+		return processo + "-Pg" + numPagina;
 	}
 
 	@Override
